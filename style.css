@@ -5,6 +5,7 @@
     --text-muted: #a0aec0;
     --accent-orange: #ff7e00;
     --accent-yellow: #ffb703;
+    --yt-red: #ff0000;
     --glow-blue: rgba(0, 174, 255, 0.4);
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
@@ -28,7 +29,7 @@ body {
     position: relative;
 }
 
-/* ==== Background Blobs (Modern Touch) ==== */
+/* Background Blobs */
 .blob {
     position: absolute;
     filter: blur(100px);
@@ -37,18 +38,14 @@ body {
     animation: float 10s infinite ease-in-out alternate;
 }
 .shape1 {
-    width: 400px;
-    height: 400px;
+    width: 400px; height: 400px;
     background: radial-gradient(circle, rgba(0,102,255,0.3) 0%, rgba(0,0,0,0) 70%);
-    top: -100px;
-    left: -100px;
+    top: -100px; left: -100px;
 }
 .shape2 {
-    width: 300px;
-    height: 300px;
+    width: 300px; height: 300px;
     background: radial-gradient(circle, rgba(255,126,0,0.15) 0%, rgba(0,0,0,0) 70%);
-    bottom: -50px;
-    right: -50px;
+    bottom: -50px; right: -50px;
     animation-delay: 2s;
 }
 
@@ -57,22 +54,18 @@ body {
     100% { transform: translateY(50px); }
 }
 
-/* ==== Layout ==== */
+/* Layout */
 .container {
-    width: 100%;
-    max-width: 600px;
+    width: 100%; max-width: 600px;
     padding: 20px;
-    perspective: 1000px; /* For 3D JS effect */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    perspective: 1000px;
+    display: flex; flex-direction: column; align-items: center;
 }
 
-/* ==== Glassmorphism Card ==== */
+/* Glass Card */
 .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     padding: 40px;
@@ -89,149 +82,130 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==== Profile Header ==== */
+/* Profile Section */
 .profile-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    margin-bottom: 30px;
-    transform: translateZ(30px); /* 3D pop */
+    display: flex; align-items: center; justify-content: center;
+    gap: 25px; margin-bottom: 30px;
+    transform: translateZ(30px);
 }
 
 .image-wrapper {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    padding: 3px;
+    position: relative; width: 120px; height: 120px;
+    border-radius: 50%; padding: 3px;
     background: linear-gradient(135deg, var(--accent-orange), #0066ff);
     box-shadow: 0 0 30px var(--glow-blue);
 }
 
 .profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    background-color: #fff; /* matching logo bg */
+    width: 100%; height: 100%; object-fit: cover;
+    border-radius: 50%; background-color: #000;
     border: 3px solid var(--bg-color);
 }
 
 .brand-name {
-    font-size: 3.5rem;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-size: 3.5rem; font-weight: 800; letter-spacing: 2px;
     background: linear-gradient(to right, var(--accent-orange), var(--accent-yellow));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     filter: drop-shadow(0px 4px 10px rgba(255, 126, 0, 0.3));
 }
 
-/* ==== Bio Section ==== */
+/* Bio Section */
 .bio-section {
-    margin-bottom: 40px;
-    transform: translateZ(20px); /* 3D pop */
+    margin-bottom: 30px;
+    transform: translateZ(20px);
 }
 
 .bio-section p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-muted);
-    font-weight: 300;
+    font-size: 1.1rem; line-height: 1.7; color: var(--text-muted); font-weight: 300;
 }
 
 .bio-section .highlight {
-    display: block;
-    margin-top: 10px;
-    color: var(--text-main);
-    font-weight: 500;
-    font-size: 1.15rem;
+    display: block; margin-top: 10px; color: var(--text-main);
+    font-weight: 500; font-size: 1.15rem;
 }
 
-/* ==== Social Links ==== */
-.social-section {
-    display: flex;
+/* ==== YouTube Button ==== */
+.youtube-section {
+    margin-bottom: 25px;
+    transform: translateZ(35px);
+}
+
+.yt-button {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
-    transform: translateZ(40px); /* 3D pop */
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 25px;
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.1);
+}
+
+.yt-button i {
+    font-size: 1.4rem;
+    color: var(--yt-red);
+    transition: color 0.3s ease;
+}
+
+.yt-button:hover {
+    background: var(--yt-red);
+    border-color: var(--yt-red);
+    transform: translateY(-5px); /* Lift Effect */
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+}
+
+.yt-button:hover i {
+    color: #fff;
+}
+
+/* Social Links */
+.social-section {
+    display: flex; justify-content: center; gap: 20px;
+    transform: translateZ(40px);
 }
 
 .social-btn {
-    width: 55px;
-    height: 55px;
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: var(--text-main);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
+    width: 55px; height: 55px; border-radius: 16px;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 1.5rem; text-decoration: none; color: var(--text-main);
+    background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
 }
 
 .social-btn::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(135deg, var(--accent-orange), #0066ff);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
+    opacity: 0; transition: opacity 0.3s ease; z-index: -1;
 }
 
 .social-btn:hover {
-    transform: translateY(-8px) scale(1.05);
-    color: #fff;
-    border-color: transparent;
+    transform: translateY(-8px) scale(1.05); /* Smooth Lift Effect */
+    color: #fff; border-color: transparent;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.social-btn:hover::before {
-    opacity: 1;
-}
+.social-btn:hover::before { opacity: 1; }
 
-/* ==== Footer ==== */
-footer {
-    margin-top: 40px;
-    text-align: center;
-    animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
+/* Footer */
+footer { margin-top: 40px; text-align: center; animation: fadeUp 1.2s ease-out; }
+.footer-links { margin-bottom: 10px; }
+.footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s ease; }
+.footer-links a:hover { color: var(--accent-orange); }
+.footer-links .dot { color: #333; margin: 0 10px; }
+.copyright { color: #5a6a85; font-size: 0.8rem; letter-spacing: 0.5px; }
 
-.footer-links {
-    margin-bottom: 10px;
-}
-
-.footer-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-    color: var(--accent-orange);
-}
-
-.footer-links .dot {
-    color: #333;
-    margin: 0 10px;
-}
-
-.copyright {
-    color: #5a6a85;
-    font-size: 0.8rem;
-    letter-spacing: 0.5px;
-}
-
-/* Responsive */
 @media (max-width: 480px) {
     .profile-section { flex-direction: column; gap: 10px; }
     .brand-name { font-size: 2.8rem; }
     .glass-card { padding: 30px 20px; }
     .bio-section p { font-size: 1rem; }
-                                }
+}
